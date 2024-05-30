@@ -1,3 +1,18 @@
 <div>
-    <H1>HELLOOOOOO</H1>
+    <H1>HELLOOOOOO!!!</H1>
+    <ul>
+        <% realties.forEach((r) => {%>
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= r.realtyPhoto %>" class="card-img-top alt="Responsive image">
+                    <div class="card-body">
+                        <h3 class="card-title">Price: <%= r.price %></h3>
+                        <h3 class="card-title">Location: <%= r.location %></h3>
+                        <h5 class="card-title">Description: <%= r.description %></h5>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+            </div>
+        <% })%>
+    </ul>
 </div>

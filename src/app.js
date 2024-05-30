@@ -4,6 +4,7 @@ const render = require('koa-ejs');
 const serve = require('koa-static');
 const mount = require('koa-mount');
 const path = require('path');
+const router = require('../routes/index');
 
 render(app, {
     root: path.join(__dirname, '..', 'view'),
@@ -13,16 +14,17 @@ render(app, {
     debug: false,
 });
 
-app.use(mount('/public', serve(path.join(__dirname, 'public'))));
+app.use(mount('/public', serve(path.join(__dirname, '..', '/public'))));
 
-// app.use(async (ctx) =>  await ctx.render('index'));
+app.use(router);
 
-app.use(async function (ctx) {
-    await ctx.render('index');
-  });
+// app.use(async (ctx) => {
+//     console.log(ctx);
+//     await ctx.render('index')
+// });
 
-// app.use((ctx) => {
-//     ctx.body = 'Hello Koa';
+// app.use(async function (ctx) {
+//     await ctx.render('index');
 // });
 
 const PORT = 3000;
