@@ -14,7 +14,7 @@ render(app, {
     debug: false,
 });
 
-app.use(mount('/public', serve(path.join(__dirname, '..', 'public'))));
+app.use(mount('/public', serve(path.join(__dirname, '..', '/public'))));
 
 app.use(router);
 
