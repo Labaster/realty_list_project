@@ -1,3 +1,7 @@
+const realtySchema = require('../model/realtyModel');
+
+const { getRealty } = realtySchema.methods;
+
 const mainAction = async (ctx) => {
     const data = {
         realties: [
@@ -21,6 +25,11 @@ const mainAction = async (ctx) => {
             }
         ],
     };
+
+    const respDb = await getRealty();
+
+    console.log('respDb', respDb);
+
     await ctx.render('index', data);
 };
 
