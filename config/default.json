@@ -1,7 +1,7 @@
 {
     "mongoDB": {
-        "url": "mongodb+srv://<auth>@cluster0.iol3gq5.mongodb.net/<collection>?authSource=admin&replicaSet=atlas-1g5wl0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Isolated%20Edition&retryWrites=true&ssl=true",
-        "userName": "denysdziubenkoweb",
-        "pass": "9zlVheQwDlhmnBPt"
+        "url": "mongodb://0.0.0.0:27017",
+        "userName": "",
+        "pass": ""
     }
 }
