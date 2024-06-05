@@ -1,10 +1,15 @@
 <div>
-    <H1>HELLOOOOOO!!!</H1>
+    <H1>pagesTotal: <%= pagesTotal %></H1>
+    <H1>page: <%= page %></H1>
     <ul>
         <% realties.forEach((r) => {%>
             <div>
                 <div class="card" style="width: 18rem;">
-                    <img src="<%= r.realtyPhoto %>" class="card-img-top alt="Responsive image">
+                    <% if (r.photos && r.photos.length > 0) {%>
+                        <img src="<%= r.photos[0] %>" class="card-img-top alt="Responsive image">
+                    <% } else { %> 
+                        <img src="https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found.jpg" class="card-img-top alt="Responsive image">
+                    <% } %>
                     <div class="card-body">
                         <h3 class="card-title">Price: <%= r.price %></h3>
                         <h3 class="card-title">Location: <%= r.location %></h3>
@@ -15,4 +20,23 @@
             </div>
         <% })%>
     </ul>
+    <div id="paginator">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item <%- page === 0 ? 'disabled' : '' %>">
+                    <a class="page-link" href="/?page=<%- page - 1 %>" tabindex="-1">Previous</a>
+                </li>
+
+                <% for (let i = 0; i < pagesTotal; i++) {%>
+                    <li class="page-item <%- page === i ? 'active' : '' %>">
+                        <a class="page-link" href="/?page=<%- i %>"><%= i + 1 %></a>
+                    </li>
+                <% } %>
+
+                <li class="page-item <%- page >= (pagesTotal - 1) ? 'disabled' : '' %>">
+                    <a class="page-link" href="/?page=<%- page + 1 %>">Next</a>
+                </li>
+            </ul>
+          </nav>
+    </div>
 </div>
