@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const config = require('config');
 const {get} = require('lodash');
-const { faker } = require('@faker-js/faker');
+// const { faker } = require('@faker-js/faker');
 
 const userName = config.get('mongoDB.userName');
 const pass = config.get('mongoDB.pass');

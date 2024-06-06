@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "runDB": "docker run --rm -i -d -p 27017:27017 -v $PWD/data:/data/db --name mongo_DB_7 mongo:7.0.11 --bind_ip=0.0.0.0",
+    "runDB": "docker run --rm -i -d -p 27017:27017 -v $PWD/data:/data/db --name mongo_db mongo:7.0.11 --bind_ip=0.0.0.0",
     "dev": "nodemon index.js",
     "runProject": "npm run runDB; npm run dev",
+    "buildProject": "docker build -t realty_list_project .",
+    "runDockerProject": "docker run -t -i --rm --link mongo_db:mongo_db -p 3000:3000 --name realty_list realty_list_project",
+    "startDockerProject": "npm run runDB; npm run buildProject; npm run runDockerProject",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
