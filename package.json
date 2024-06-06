@@ -10,6 +10,7 @@
     "buildProject": "docker build -t realty_list_project .",
     "runDockerProject": "docker run -t -i --rm --link mongo_db:mongo_db -p 3000:3000 --name realty_list realty_list_project",
     "startDockerProject": "npm run runDB; npm run buildProject; npm run runDockerProject",
+    "startDockerComposeProject": "docker-compose build; docker-compose up;",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

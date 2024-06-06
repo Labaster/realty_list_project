@@ -33,4 +33,5 @@ COPY --from=build node_modules node_modules
 
 EXPOSE 3000
 
-CMD DB_HOST=mongo_db node index.js
+CMD node index.js
+#CMD DB_HOST=mongo_db node index.js

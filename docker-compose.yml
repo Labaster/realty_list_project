@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  web:
+    build: .
+    container_name: web
+    links:
+      - "mongo_db:mongo_db"
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: mongo_db
+    restart: always
+
+  mongo_db:
+    image: mongo:7.0.11
+    ports:
+          - '27017:27017'
+    volumes:
+      - ./compose/dbdata:/data/mongo
+    restart: always
+    
