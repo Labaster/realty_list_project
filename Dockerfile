@@ -1,11 +1,11 @@
 FROM node:20.3 AS build
 
-# Копіюємо файли проекту в контейнер
+# Копіюємо файли проекту
 COPY package.json .
 COPY package-lock.json .
 COPY index.js .
 
-# Копіюємо папки проекту в контейнер
+# Копіюємо папки проекту
 COPY config config
 COPY controllers controllers
 COPY model model
@@ -19,6 +19,7 @@ FROM node:20.3-alpine
 # Створюємо робочу деректорію проекту в докер контейнері
 RUN mkdir /app
 WORKDIR /app
+# Копіюємо папки проекту в контейнер
 COPY --from=build package.json package.json
 COPY --from=build package-lock.json package-lock.json
 COPY --from=build index.js index.js
