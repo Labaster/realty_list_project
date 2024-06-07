@@ -34,5 +34,8 @@ COPY --from=build node_modules node_modules
 
 EXPOSE 3000
 
+# Запуск через docker-compose
 CMD node index.js
-#CMD DB_HOST=mongo_db node index.js
+
+# Запуск через docker image
+# CMD DB_HOST=mongo_db node index.js
